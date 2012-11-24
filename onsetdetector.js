@@ -19,7 +19,7 @@
         liveSource,
         audioContext,
         analyser,
-        processer,
+        processor,
         spectrum;
 
     var setCallback = function (callback, args, context) {
@@ -40,9 +40,9 @@
         analyser = audioContext.createAnalyser();
         analyser.fftSize = _bufferSize * 2;
         analyser.smoothingTimeConstant = 0;
-        processer = audioContext.createJavaScriptNode(_bufferSize, 1, 1);
+        processor = audioContext.createJavaScriptNode(_bufferSize, 1, 1);
         spectrum = new Uint8Array(analyser.frequencyBinCount);
-        processer.onaudioprocess = function () {
+        processor.onaudioprocess = function () {
             if (skips > 0) {
                 skips--;
                 return;
@@ -74,15 +74,15 @@
         navigator.getUserMedia({ audio: true }, function (stream) {
             liveSource = audioContext.createMediaStreamSource(stream);
             liveSource.connect(analyser);
-            analyser.connect(processer);
-            processer.connect(audioContext.destination);
+            analyser.connect(processor);
+            processor.connect(audioContext.destination);
         });    
     };
     
     var stop = function () {
         liveSource.disconnect();
         analyser.disconnect();
-        processer.disconnect();
+        processor.disconnect();
     };
     
     global.OnsetDetector = {
