@@ -54,7 +54,6 @@
             var total = 0;
             for (var i = 1; i < analyser.frequencyBinCount; i++) {
                 total += spectrum[i];
-                s += ',' + spectrum[i];
             }
             
             // calculate the average
