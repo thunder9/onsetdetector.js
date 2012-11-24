@@ -98,7 +98,7 @@
         skipCount: {
             get: function () { return _skipCount; },
             set: function (count) { _skipCount = count; }        
-        } 
+        }, 
         bufferSize: {
             get: function () { return _bufferSize; },
             set: function (bufferSize) {
