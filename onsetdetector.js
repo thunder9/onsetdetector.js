@@ -23,9 +23,11 @@
         spectrum;
 
     var setCallback = function (callback, args, context) {
-        _callback = callback;
-        _args = args;
-        _context = context || global;
+        if (typeof callback === 'function') {
+            _callback = callback;
+            _args = args;
+            _context = context || global;
+        }
     };
         
     var init = function () {
