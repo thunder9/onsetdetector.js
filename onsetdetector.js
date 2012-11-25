@@ -27,7 +27,7 @@
         _args = args;
         _context = context || global;
     };
-    
+        
     var init = function () {
         if (!navigator.getUserMedia) throw new Error('getUserMedia is not supported');
         if (typeof AudioContext === 'function') {
@@ -48,24 +48,28 @@
                 return;
             }
                 
-            analyser.getByteFrequencyData(spectrum);
-
-            // summing up the frequency-domain data excluding dc component
-            var total = 0;
-            for (var i = 1; i < analyser.frequencyBinCount; i++) {
-                total += spectrum[i];
-            }
-            
-            // calculate the average
-            total /= (analyser.frequencyBinCount - 1);
-            
-            if (total > _threshold) {
+            if (getCurrentLevel() > _threshold) {
                 if (_callback) {
                     _callback.apply(_context, _args);
                 }
                 skips = _skipCount;
             }
         };
+    };
+
+    var getCurrentLevel = function () {
+        if (!analyser) return 0;
+        
+        analyser.getByteFrequencyData(spectrum);
+
+        // summing up the frequency-domain data excluding dc component
+        var total = 0;
+        for (var i = 1; i < analyser.frequencyBinCount; i++) {
+            total += spectrum[i];
+        }
+            
+        // return the average
+        return total / (analyser.frequencyBinCount - 1);    
     };
     
     var start = function () {
@@ -110,7 +114,10 @@
                     }
                 }           
             }
-        }      
+        },
+        currentLevel: {
+            get: function () { return getCurrentLevel(); }    
+        }
     });
         
 })(this);
