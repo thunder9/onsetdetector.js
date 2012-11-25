@@ -88,7 +88,6 @@
         liveSource.disconnect();
         analyser.disconnect();
         processor.disconnect();
-        liveSource = analyser = processor = null;
     };
     
     global.OnsetDetector = {
