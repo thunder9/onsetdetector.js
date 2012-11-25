@@ -7,7 +7,7 @@ onsetdetector.js is a minimal JavaScript library for onset detection of live aud
 Download the js and include it in your html.
 
 ```html
-<script src="js/three.min.js"></script>
+<script src="js/onsetdetector.js"></script>
 ```
 
 All methods and properties are included in the "OnsetDetector" object.
