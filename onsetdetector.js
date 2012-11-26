@@ -20,7 +20,8 @@
         audioContext,
         analyser,
         processor,
-        spectrum;
+        spectrum,
+        level = 0;
 
     var setCallback = function (callback, args, context) {
         if (typeof callback === 'function') {
@@ -49,8 +50,8 @@
                 skips--;
                 return;
             }
-                
-            if (getCurrentLevel() > _threshold) {
+            level =  getCurrentLevel();           
+            if (level > _threshold) {
                 if (_callback) {
                     _callback.apply(_context, _args);
                 }
@@ -118,7 +119,7 @@
             }
         },
         currentLevel: {
-            get: function () { return getCurrentLevel(); }    
+            get: function () { return level; }    
         }
     });
         
