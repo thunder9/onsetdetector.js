@@ -91,13 +91,13 @@
         processor.disconnect();
     };
     
-    global.OnsetDetector = {
+    global.onsetDetector = {
         setCallback: setCallback,
         start: start,
         stop: stop
     };
     
-    Object.defineProperties(global.OnsetDetector, {
+    Object.defineProperties(global.onsetDetector, {
         threshold: {
             get: function () { return _threshold; },
             set: function (threshold) { _threshold = threshold; }

@@ -10,24 +10,24 @@ Download the js and include it in your html.
 <script src="js/onsetdetector.js"></script>
 ```
 
-All methods and properties are included in the "OnsetDetector" object.
+All methods and properties are included in the "onsetDetector" object.
 
 A short example is the following:
 
 ```js
 // set arbitrary callback that will be called when detecting onset
-OnsetDetector.setCallback(function () {
+onsetDetector.setCallback(function () {
     alert('hey!');
 });
 
 // set threshold in the range of 0-255
-OnsetDetector.threshold = 150;
+onsetDetector.threshold = 150;
 
 // start monitoring the live audio input that is captured by the microphone
-OnsetDetector.start();
+onsetDetector.start();
 
 // stop monitoring
-OnsetDetector.stop();
+onsetDetector.stop();
 ```
 ## License
 Copyright (c) 2012 thunder9 licensed under the MIT license.
