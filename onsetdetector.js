@@ -89,6 +89,7 @@
         liveSource.disconnect();
         analyser.disconnect();
         processor.disconnect();
+        level = 0;
     };
     
     global.onsetDetector = {
