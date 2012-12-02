@@ -44,17 +44,17 @@ onsetDetector.stop();
         <tr>
             <td>threshold</td>
             <td>100</td>
-            <td>Threshold for the level of analysis audio signal. The range is from 0 to 255. When the level is greater than this threshold, the callback is called.</td>
+            <td>Threshold for the level of analysis audio signal. The range of level is from 0 to 255. When the level is greater than this threshold, the callback is called.</td>
         </tr>
         <tr>
             <td>skipCount</td>
             <td>100</td>
-            <td>Count of frames to skip monitoring after detecting onset.</td>
+            <td>Count of analysis frames to skip monitoring after detecting onset.</td>
         </tr>
         <tr>
             <td>bufferSize</td>
             <td>512</td>
-            <td>Length of the analysis window. It must be one of the following values: 256, 512, 1024, 2048, 4096, 8192, 16384.</td>
+            <td>Length of the analysis window in sample. It must be one of the following values: 256, 512, 1024, 2048, 4096, 8192, 16384.</td>
         </tr>
         <tr>
             <td>currentLevel</td>
