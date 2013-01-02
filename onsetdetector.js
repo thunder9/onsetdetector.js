@@ -110,8 +110,9 @@
         bufferSize: {
             get: function () { return _bufferSize; },
             set: function (bufferSize) {
-                for (var c in [256, 512, 1024, 2048, 4096, 8192, 16384]) {
-                    if (c === bufferSize) {
+                sizes = [256, 512, 1024, 2048, 4096, 8192, 16384];
+                for (var i = 0; i < sizes.length; i++) {
+                    if (sizes[i] === bufferSize) {
                         _bufferSize = bufferSize;
                         init();
                         return;
